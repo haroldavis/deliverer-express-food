@@ -75,12 +75,12 @@ CREATE TABLE orderitems (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO customers (firstName, lastName, sex, address, phone, email, birthday, paymentMethod, media)
-VALUES ('Harold', 'Chirinos', 'male', 'SJM', '999998998', 'harold@hotmail.com', '1991-03-01', 'creditCard', ''),
-('Cris', 'Cordova', 'male','SJL', '990990990', 'cris@hotmail.com', '1993-04-05', 'cash', ''),
-('Jimena', 'Aquino', 'female', 'Villa Maria', '954545434', 'jimena@hotmail.com', '1994-05-05', 'cash', ''),
-('Juan', 'Clinton', 'male', 'Miraflores', '989797804', 'juan@hotmail.com', '1994-09-09', 'cash', ''),
-('Marco', 'Bush', 'male', 'San Borja', '94505737', 'gabriela@hotmail.com', '1990-06-20', 'creditCard', '')
+INSERT INTO customers (firstName, lastName, sex, address, phone, email, birthday, media)
+VALUES ('Harold', 'Chirinos', 'male', 'SJM', '999998998', 'harold@hotmail.com', '1991-03-01', ''),
+('Cris', 'Cordova', 'male','SJL', '990990990', 'cris@hotmail.com', '1993-04-05', ''),
+('Jimena', 'Aquino', 'female', 'Villa Maria', '954545434', 'jimena@hotmail.com', '1994-05-05', ''),
+('Juan', 'Clinton', 'male', 'Miraflores', '989797804', 'juan@hotmail.com', '1994-09-09', ''),
+('Marco', 'Bush', 'male', 'San Borja', '94505737', 'gabriela@hotmail.com', '1990-06-20', '')
 
 INSERT INTO deliverers (firstName, lastName, sex, phone, email, birthday, media)
 VALUES ('Danilo', 'Cordova', 'male', '999998998', 'danilo@gmail.com', '1991-03-01', ''),
@@ -100,12 +100,12 @@ VALUES ('Ceviche', 'dish', 'Plate with fish, lemon, spices and condiments', '12.
 ('Chocolate cake', 'desert', 'delicius cake', '5.00', 'friday', '')
 
 
-INSERT INTO orders (customerId, delivererId, dateTime, status, total, shippingAddress1, shippingAddress2, shippingCountry, shippingCity, shippingState, postalCode)
-VALUES ('5', '2', '', 'do not delivered', '2', 'San Borja', 'San Isidro', 'Peru', 'Lima', 'Lima', '15056'),
-('4', '1','', 'do not delivered', '2', 'San Borja', 'San Isidro', 'Peru', 'Lima', 'Lima', '15056'),
-('3', '2','', 'delivered', '1', 'Miraflores', 'Miraflores', 'Peru', 'Lima', 'Lima', '15000'),
-('2', '5','', 'delivered', '2', 'Miraflores', 'San Borja', 'Peru', 'Lima', 'Lima', '150540'),
-('1', '4','', 'delivered', '3', 'Surco', 'Jesus Maria', 'Peru', 'Lima', 'Lima', '16050')
+INSERT INTO orders (customerId, delivererId, dateTime, status, total, shippingAddress1, shippingAddress2, shippingCountry, shippingCity, shippingState,paymentMethod, postalCode)
+VALUES ('5', '2', '', 'do not delivered', '2', 'San Borja', 'San Isidro', 'Peru', 'Lima', 'Lima', 'creditCard', '15056'),
+('4', '1','', 'do not delivered', '2', 'San Borja', 'San Isidro', 'Peru', 'Lima', 'Lima', 'cash', '15056'),
+('3', '2','', 'delivered', '1', 'Miraflores', 'Miraflores', 'Peru', 'Lima', 'Lima', 'cash', '15000'),
+('2', '5','', 'delivered', '2', 'Miraflores', 'San Borja', 'Peru', 'Lima', 'Lima', 'cash', '150540'),
+('1', '4','', 'delivered', '3', 'Surco', 'Jesus Maria', 'Peru', 'Lima', 'Lima', 'creditCard', '16050')
 
 INSERT INTO orderitems (orderId, itemId, quantity, price)
 VALUES ('6', '1', '1', '12.00'),
