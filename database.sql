@@ -47,9 +47,9 @@ CREATE TABLE orders (
   `total` FLOAT(3,2),
   `shippingAddress1` VARCHAR(200),
   `shippingAddress2` VARCHAR(200),
-  `country` VARCHAR(80),
-  `city` VARCHAR(80),
-  `state` VARCHAR(80),
+  `shippingCountry` VARCHAR(80),
+  `shippingCity` VARCHAR(80),
+  `shippingState` VARCHAR(80),
   `postalCode` VARCHAR(80),
   FOREIGN KEY (customerId)
 	REFERENCES customers(id)
