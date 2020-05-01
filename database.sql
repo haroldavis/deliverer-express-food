@@ -10,7 +10,6 @@ CREATE TABLE customers(
 `phone` INT,
 `email` VARCHAR(50),
 `birthday` DATETIME default CURRENT_TIMESTAMP,
-`paymentMethod` enum ('creditCard', 'cash'),
 `media` VARCHAR(100) null
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -51,6 +50,7 @@ CREATE TABLE orders (
   `shippingCity` VARCHAR(80),
   `shippingState` VARCHAR(80),
   `postalCode` VARCHAR(80),
+  `paymentMethod` enum ('creditCard', 'cash'),
   FOREIGN KEY (customerId)
 	REFERENCES customers(id)
 	ON DELETE CASCADE,
@@ -91,7 +91,7 @@ VALUES ('Danilo', 'Cordova', 'male', '999998998', 'danilo@gmail.com', '1991-03-0
 
 INSERT INTO menu (name, type, description, price, dow, media)
 VALUES ('Ceviche', 'dish', 'Plate with fish, lemon, spices and condiments', '12.00', 'monday', ''),
-('Rice with milk', 'desert', 'sweet of rice dipped in mill', '5.00', 'monday', ''),
+('Rice with milk', 'desert', 'sweet of rice dipped in milK', '5.00', 'monday', ''),
 ('Rice with chicken', 'dish', 'green rice with delicious chicken', '12.00', 'tuesday', ''),
 ('Limeño sigh', 'desert', 'sweet cream of all flavors', '5.00', 'tuesday', ''),
 ('beef stew', 'dish', 'dish with beef, parboiled potatoes', '12.00', 'wednesday', ''),
