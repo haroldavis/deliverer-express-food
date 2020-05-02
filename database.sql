@@ -2,7 +2,7 @@ CREATE SCHEMA expressfood ;
 
 DROP TABLE IF EXISTS customers;
 CREATE TABLE customers(
-`id` INT NOT NULL  AUTO_INCREMENT primary key,
+`id` INT NOT NULL AUTO_INCREMENT primary key,
 `firstName` VARCHAR(30) NOT NULL,
 `lastName` VARCHAR(50) NOT NULL,
 `sex` enum ('male', 'female'),
@@ -11,7 +11,7 @@ CREATE TABLE customers(
 `email` VARCHAR(50),
 `birthday` DATETIME default CURRENT_TIMESTAMP,
 `media` VARCHAR(100) null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS deliverers;
 CREATE TABLE deliverers (
