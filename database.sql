@@ -21,7 +21,7 @@ CREATE TABLE deliverers (
 `sex` enum ('male', 'female'),
 `phone` INT NOT NULL,
 `email` VARCHAR(50),
-`birthday` DATETIME,
+`birthday` DATETIME DEFAULT CURRENT_TIMESTAMP,
 `media` VARCHAR(100) null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -42,7 +42,7 @@ CREATE TABLE orders (
   `customerId` INT  NOT NULL,
   `delivererId` INT  NOT NULL,
   `dateTime` DATETIME,
-  `status` enum ('do not delivered',  'delivered') DEFAULT 'do not delivered' NOT NULL,
+  `status` enum ('do not delivered', 'delivered') NOT NULL,
   `total` FLOAT(4,2),
   `shippingAddress1` VARCHAR(200),
   `shippingAddress2` VARCHAR(200),
@@ -74,8 +74,6 @@ CREATE TABLE orderitems (
 	ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-
 INSERT INTO customers (firstName, lastName, sex, address, phone, email, birthday, media)
 VALUES ('Harold', 'Carhuancho', 'male', 'SJM', '999998998', 'harold@hotmail.com', '1991-03-01', ''),
 ('Cris', 'Cordova', 'male', 'SJL', '990990990', 'cris@hotmail.com', '1993-04-05', ''),
@@ -99,7 +97,6 @@ VALUES ('Hector', 'Santa', 'male', '999998998', 'hector@gmail.com', '1991-03-01'
 ('Fabrizio', 'Escobedo', 'male', '989797804', 'fabrizio@hotmail.com','1994-09-09',''),
 ('Vanessa', 'Torrejon', 'female', '987887885', 'vanesa@hotmail.com', '1993-04-05',''),
 ('Anthony', 'De la Rosa', 'male', '94505737', 'anthony@hotmail.com', '1990-06-20','')
-
 
 INSERT INTO menu (name, type, description, price, dow, media)
 VALUES ('Ceviche', 'dish', 'Plate with fish, lemon, spices and condiments', '12.00', 'monday', ''),
@@ -153,7 +150,8 @@ VALUES ('1', '1', '1', '12.00'),
 
 /* query for do consult the order history for each client */
 
-SELECT orders.id, customers.firstName, customers.lastName
-FROM customers
-INNER JOIN orders ON customers.id=orders.customerId
+SELECT orders.id as numberOrder, customers.firstName, customers.lastName
+FROM orders
+INNER JOIN customers
+ON customers.id=orders.customerId
 WHERE customers.id=(customer you want to consult);
